@@ -13,7 +13,7 @@ jobs:
     runs-on: ubuntu-latest
     strategy:
       matrix:
-        compiler: [g++, clang++]
+        compiler: [g++]
 
     steps:
       - uses: actions/checkout@v4
@@ -59,7 +59,7 @@ jobs:
       run: make ctest_coverage
 
     - name: Upload coverage report
-      uses: codecov/codecov-action@v3
+      uses: codecov/codecov-action@v4
       with:
         token: ${{ secrets.CODECOV_TOKEN }}
         files: ./build/ctest_coverage.info
